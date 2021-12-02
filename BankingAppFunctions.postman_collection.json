@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "4edd14f2-1b3e-42b4-816e-fe013b5e92f0",
+		"name": "BankingAppFunctions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"acc_holder\": \"rohit\",\r\n    \"acc_id\": 2,\r\n    \"acc_bal\": \"1000\",\r\n    \"acc_loan\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/banking/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking",
+						"accounts"
+					]
+				},
+				"description": "Post to accounts"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Accounts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/banking/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Snapshot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"acc_id\": \"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/banking/account",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"trans_id\": \"1\",\r\n    \"acct_id\": \"1\",\r\n    \"trans_type\": \"DEPOSIT\",\r\n    \"trans_amount\": \"200\",\r\n    \"trans_vendor\": \"ATM\",\r\n    \"base_type\": \"CREDIT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/banking/account/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking",
+						"account",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Loan",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"acc_id\": 17,\r\n    \"loan_amount\": \"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/banking/account/loan",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking",
+						"account",
+						"loan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
